@@ -1,13 +1,3 @@
-// Public key
-// 9ab871748d83ae2eb5527ffd69e034de
-
-// Private Key
-// ad79003cf7316d9bd72c6eda71d1c93d7e807e90
-
-// hash
-// 1ad79003cf7316d9bd72c6eda71d1c93d7e807e909ab871748d83ae2eb5527ffd69e034de
-// md5(hash) = d35377547e551cd64a60657d2517bb7f
-
 //*-------------------------------------- Selecting the element from DOM ----------------------------------------------------
 let searchBar = document.getElementById("search-bar");
 let searchResults = document.getElementById("search-results");
@@ -17,11 +7,6 @@ searchBar.addEventListener("input", () => searchHeros(searchBar.value));
 
 // function for API call
 async function searchHeros(textSearched) {
-
-     // let PUBLIC_KEY = "9ab871748d83ae2eb5527ffd69e034de";
-     // let PRIVATE_KEY = "ad79003cf7316d9bd72c6eda71d1c93d7e807e90";
-
-     // let ts = new Date().getTime();
      // let hash = CryptoJS.MD5(ts + PRIVATE_KEY + PUBLIC_KEY).toString();
      
      // if there is no text written in the search bar then nothing is displayed 
@@ -43,9 +28,6 @@ function showSearchedResults(searchedHero) {
 
 
      // IDs of the character which are added in the favourites 
-     // Used for displaying the appropriate button in search results i.e
-     // if the id exist in this array then we display "Remove from favourites" button otherwise we display "Add to favourites button"
-     // favouritesCharacterIDs is a map which contains id of character as key and true as value 
      let favouritesCharacterIDs = localStorage.getItem("favouritesCharacterIDs");
      if(favouritesCharacterIDs == null){
           // If we did't got the favouritesCharacterIDs then we iniitalize it with empty map
@@ -160,7 +142,6 @@ function addToFavourites() {
 
           // again setting the new favouritesCharacterIDs array to localStorage
           favouritesCharacterIDs.set(heroInfo.id, true);
-          // console.log(favouritesCharacterIDs)
 
           // adding the above created heroInfo object to favouritesArray
           favouritesArray.push(heroInfo);
